@@ -1073,9 +1073,6 @@ export default {
         }
         };},
   methods: {
-    crearTodo(){
-
-     },
     datosJSON(res){
         if(this.backup.fechaHoy == this.backup.fechaCopia){
           return JSON.parse(localStorage.getItem('copiaDatos'));
@@ -1663,7 +1660,8 @@ export default {
     fetch("https://coronavirus-tracker-api.herokuapp.com/v2/locations?timelines=1")
       .then(res => res.ok ? this.datosJSON(res) : this.recuperarCopia())
       .then(datos => {
-        if(datos.length > copiaJSON.length){
+        if(Object.keys(datos.locations[0].timelines.confirmed.timeline).length >= 
+          Object.keys(JSON.parse(localStorage.getItem('copiaDatos')).locations[0].timelines.confirmed.timeline).length){
           this.datos = datos;
         }else{
           this.backup.copiaRecuperada = true;
