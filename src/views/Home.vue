@@ -179,7 +179,6 @@
                     type="AreaChart"
                     :data="areaChartData"
                     :options="areaChartOptions"
-                    :events="areaChartEvents"
                   />
                 </div>
               </div>
@@ -190,7 +189,6 @@
                     type="PieChart"
                     :data="pieChartData"
                     :options="pieChartOptions"
-                    :events="pieChartEvents"
                   />
                 </div>
               </div>
@@ -292,7 +290,6 @@
                     type="PieChart"
                     :data="pieChartData"
                     :options="pieChartOptions"
-                    :events="pieChartEvents"
                   />
                 </div>
               </div>
@@ -360,7 +357,6 @@
                     type="AreaChart"
                     :data="areaChartData"
                     :options="areaChartOptions"
-                    :events="areaChartEvents"
                   />
                 </div>
               </div>
@@ -459,7 +455,6 @@
                     type="PieChart"
                     :data="pieChartData"
                     :options="pieChartOptions"
-                    :events="pieChartEvents"
                   />
                 </div>
               </div>
@@ -529,7 +524,6 @@
                     type="AreaChart"
                     :data="areaChartData"
                     :options="areaChartOptions"
-                    :events="areaChartEvents"
                   />
                 </div>
               </div>
@@ -625,7 +619,6 @@
                     type="PieChart"
                     :data="pieChartData"
                     :options="pieChartOptions"
-                    :events="pieChartEvents"
                   />
                 </div>
               </div>
@@ -676,7 +669,6 @@
                     :key="areaChartOptions.key"
                     :data="areaChartData"
                     :options="areaChartOptions"
-                    :events="areaChartEvents"
                   />
                 </div>
               </div>
@@ -707,88 +699,86 @@
         </div>
       </div>
     </div>
-  <!--Modal Copia-->
-  <div id="modalCopia">
-    <div class="contenido">
-      El servidor está caido, se ha recuperado la copia más reciente.
-    </div>
-  </div>
-    
-  <!--Modal Info-->
-    <div id="modal" @click="modal($event)">
-      <div id="modal-content">
-        <span id="close" @click="modal('cerrar')">&times;</span>
-        <p><span>DATOS OFICIALES:</span> <a href="https://github.com/CSSEGISandData/COVID-19">JHU CSSE</a>.</p>
-        <p><span>API REST:</span> <a href="https://github.com/ExpDev07/coronavirus-tracker-api">ExpDev07 coronaVirus-tracker-api</a>.</p>
-        <p><span>CHARTS:</span> <a href="https://github.com/devstark-com/vue-google-charts">devstark-com vue-google-charts</a>.</p>
-        <p><span>CALENDARIO:</span> <a href="https://github.com/nathanreyes/v-calendar">nathanreyes v-calendar</a>.</p>
-        <p><span>ICONOS:</span> <a href="https://www.flaticon.com/authors/freepik">Freepik</a> de <a href="https://www.flaticon.com/">flat-icon</a>.</p>
-        <p><span>BANDERAS:</span> <a href="https://github.com/lipis/flag-icon-css">Lipis flag-icon-css</a>.</p>
-        <p><span>RECUPERADOS*:</span> Actualmente JHU CSSE ya no proporciona dichos datos, por lo tanto se muestra "0"
-         y esta desactivado dichas funciones asociadas.</p>
-        <p><span>ACTIVOS*:</span> Como los datos de los recuperados son "0", el calculo no es real, solo se le están restando
-         los muertos al total de diagnosticados.</p>
-         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1" v-model="audio.switch" >
-          <label class="custom-control-label" for="customSwitch1"><img :src="icono.coffin"></label>
-         </div>
-      </div>
-    </div>
-  <!--Audio-->
-   <audio id="audio" :src="audio.cancion"></audio>
-  <!--MenuGeo-->
-    <div class="menu" @contextmenu.prevent="toggleMenu()">
-      <div class="icons">
-        <div class="rotater">
-          <div class="btn btn-icon">
-             <img :src="icono.mundo"  @click="cambiarRegionYMapa(mundo);">
-          </div>
-        </div>
-        <div class="rotater">
-          <div class="btn btn-icon">
-            <img :src="icono.america" @click="cambiarRegionYMapa(continentes.america);">
-          </div>
-        </div>
-        <div class="rotater">
-          <div class="btn btn-icon">
-           <img :src="icono.europa" @click="cambiarRegionYMapa(continentes.europa);">
-          </div>
-        </div>
-        <div class="rotater">
-          <div class="btn btn-icon">
-           <img :src="icono.africa" @click="cambiarRegionYMapa(continentes.africa);">
-          </div>
-        </div>
-        <div class="rotater">
-          <div class="btn btn-icon">
-            <img :src="icono.asia" @click="cambiarRegionYMapa(continentes.asia);">
-          </div>
-        </div>
-        <div class="rotater">
-          <div class="btn btn-icon">
-           <img :src="icono.oceania" @click="cambiarRegionYMapa(continentes.oceania);">
-          </div>
+  <!--ExtrasGlobales-->
+    <!--Modal Copia-->
+      <div id="modalCopia">
+        <div class="contenido">
+           {{ infoDatos}}
         </div>
       </div>
-    </div>
+
+    <!--Modal Info-->
+      <div id="modal" @click="modal($event)">
+        <div id="modal-content">
+          <span id="close" @click="modal('cerrar')">&times;</span>
+          <p><span>DATOS OFICIALES:</span> <a href="https://github.com/CSSEGISandData/COVID-19">JHU CSSE</a>.</p>
+          <p><span>API REST:</span> <a href="https://github.com/ExpDev07/coronavirus-tracker-api">ExpDev07 coronaVirus-tracker-api</a>.</p>
+          <p><span>CHARTS:</span> <a href="https://github.com/devstark-com/vue-google-charts">devstark-com vue-google-charts</a>.</p>
+          <p><span>CALENDARIO:</span> <a href="https://github.com/nathanreyes/v-calendar">nathanreyes v-calendar</a>.</p>
+          <p><span>ICONOS:</span> <a href="https://www.flaticon.com/authors/freepik">Freepik</a> de <a href="https://www.flaticon.com/">flat-icon</a>.</p>
+          <p><span>BANDERAS:</span> <a href="https://github.com/lipis/flag-icon-css">Lipis flag-icon-css</a>.</p>
+          <p><span>RECUPERADOS*:</span> Actualmente JHU CSSE ya no proporciona dichos datos, por lo tanto se muestra "0"
+           y esta desactivado dichas funciones asociadas.</p>
+          <p><span>ACTIVOS*:</span> Como los datos de los recuperados son "0", el calculo no es real, solo se le están restando
+           los muertos al total de diagnosticados.</p>
+           <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" v-model="audio.switch" >
+            <label class="custom-control-label" for="customSwitch1"><img :src="icono.coffin"></label>
+           </div>
+        </div>
+      </div>
+    <!--Audio-->
+     <audio id="audio" :src="audio.cancion"></audio>
+    <!--MenuGeo-->
+      <div class="menu" @contextmenu.prevent="toggleMenu()">
+        <div class="icons">
+          <div class="rotater">
+            <div class="btn btn-icon">
+               <img :src="icono.mundo"  @click="cambiarRegionYMapa(mundo);">
+            </div>
+          </div>
+          <div class="rotater">
+            <div class="btn btn-icon">
+              <img :src="icono.america" @click="cambiarRegionYMapa(continentes.america);">
+            </div>
+          </div>
+          <div class="rotater">
+            <div class="btn btn-icon">
+             <img :src="icono.europa" @click="cambiarRegionYMapa(continentes.europa);">
+            </div>
+          </div>
+          <div class="rotater">
+            <div class="btn btn-icon">
+             <img :src="icono.africa" @click="cambiarRegionYMapa(continentes.africa);">
+            </div>
+          </div>
+          <div class="rotater">
+            <div class="btn btn-icon">
+              <img :src="icono.asia" @click="cambiarRegionYMapa(continentes.asia);">
+            </div>
+          </div>
+          <div class="rotater">
+            <div class="btn btn-icon">
+             <img :src="icono.oceania" @click="cambiarRegionYMapa(continentes.oceania);">
+            </div>
+          </div>
+        </div>
+      </div>
 
 </div>
 </template>
 <script>
 import '../../public/style.scss';
 import KEYS from '@/keys.json';
-import copiaJSON from '@/copia.json';
+import BACKUP from '@/backup.json';
 import $ from 'jquery';
 export default {
   name: "App",
   data() {
     return {
-      backup: {
-        fechaCopia: "",
-        fechaHoy: "",
-        nuevaCopia: false,
-        copiaRecuperada: false,
-       },
+      infoDatos : "",
+      listadoFechas: "",
+      backup: "",
       audio: {
         cancion: require("@/assets/musica/coffin-dance.mp3"),
         tag: "",
@@ -1046,23 +1036,74 @@ export default {
         },
         };},
   methods: {
-    datosJSON(res){
-        if(this.backup.fechaHoy == this.backup.fechaCopia){
-          return JSON.parse(localStorage.getItem('copiaDatos'));
+    crearPaisesYRellenarDatos(locations){
+       Array.from(locations).forEach(p => {
+        if (!this.existePais(p.country)) {
+          this.crearPais(p);
         }else{
-          this.backup.nuevaCopia = true;
-          return res.json();
+          this.buscarPais(p.country).subRegiones = true;
         }
+        Object.keys(p.timelines.confirmed.timeline).forEach((fecha,i) => {
+          this.rellenarDatos(p,fecha,i);
+        });
+      });
      },
-    recuperarCopia(){
-        if(!localStorage.getItem('copiaDatos')){
-          this.backup.fechaCopia = "2020-4-18";
-          localStorage.setItem('fechaCopia', this.backup.fechaCopia);
-          localStorage.setItem('copiaDatos', JSON.stringify(copiaJSON));
-        }
-        this.backup.copiaRecuperada = true;
-        return JSON.parse(localStorage.getItem('copiaDatos'));
-      },
+    funcionesIniciales(datos){
+      this.listadoFechas = Object.keys(datos.locations[0].timelines.confirmed.timeline);
+      this.crearContinentes();
+      this.crearMundo();
+      this.crearPaisesYRellenarDatos(datos.locations);
+      this.rellenarDatosSubRegiones();
+      this.crearFechaInicial();
+      this.modificarChart();
+      this.regionSeleccionada = this.buscarRegion("world");
+      this.filtro = "diagnosticados";
+      this.buscarRegion("VA").nombre = "Vatican";
+      this.buscarRegion("AD").icono = "flag-icon-xx";
+      this.audio.tag = document.querySelector("#audio");
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+      this.modalBackup();
+      this.montado = true;
+     },
+    modalBackup(){
+      let modalCopia = document.querySelector("#modalCopia");
+      modalCopia.style.display = "block";
+      setTimeout(() => { modalCopia.style.opacity = "0";}, 5000);
+      setTimeout(() => { modalCopia.style.display = "none";}, 8000);
+     },
+    cargarBackup(error){
+ 
+        console.log(error);
+  
+      
+      this.funcionesIniciales(this.backup.datos);
+      this.infoDatos = "Cargando copia local actualizada...";
+     },
+    guardarBackup(datos){
+      let backup = {
+        "datos" : datos,
+        "version" : Object.keys(datos.locations[0].timelines.confirmed.timeline).length
+      }
+      localStorage.setItem('backup',JSON.stringify(backup));
+      this.infoDatos = "Cargando nuevos datos del servidor...";
+     },
+    comprobarBackup(){
+      this.backup = localStorage.getItem('backup') ? JSON.parse(localStorage.getItem('backup')) : BACKUP;
+     },
+    existeNuevaVersion(resJSON){
+      if(Object.keys(resJSON.locations[0].timelines.confirmed.timeline).length <= this.backup.version){
+        throw Error("version vieja");
+      }
+      return resJSON;
+     },
+    respuestaOk(res){
+      if (!res.ok) {
+        throw Error("NO OK: " + res.statusText);
+      }
+      return res.json();
+     },
     modal(opcion){
        let modal = document.querySelector("#modal");
       switch(opcion){
@@ -1311,10 +1352,10 @@ export default {
           subRegiones: false
         });
       },
-    crearFechaInicial(datos){
+    crearFechaInicial(){
         let fechaInicio = new Date("1/22/20");
         let ultimaFecha = new Date("1/22/20");
-        ultimaFecha.setDate(ultimaFecha.getDate() + Object.keys(datos.locations[0].timelines.confirmed.timeline).length - 1);
+        ultimaFecha.setDate(ultimaFecha.getDate() + this.paises[0].historial.length - 1);
         this.calendarOptions.fechaSeleccionada = ultimaFecha;
         this.crearFechaCalendario(fechaInicio,ultimaFecha);
       },
@@ -1446,7 +1487,7 @@ export default {
              this.continents[3].some(e => e == CountryCode) ? "asia" : 
              this.continents[4].some(e => e == CountryCode) ? "oceania" : "sin_definir";},
     listadoFecha() {
-      return Object.keys(this.datos.locations[0].timelines.confirmed.timeline).map(
+      return this.listadoFechas.map(
         fecha =>
           new Object({
             fecha: fecha,
@@ -1625,69 +1666,19 @@ export default {
         } 
       },
   mounted() {
-    this.backup.fechaHoy = this.fechaToString(new Date());
-    this.backup.fechaCopia = localStorage.getItem('fechaCopia');
     window.onresize = () => {
       this.windowWidth = window.innerWidth
     }
-
-    /*
-    if(localStorage.getItem('backup')){
-
-    }else{
-
-    }*/
-
+    this.comprobarBackup();
     fetch("https://coronavirus-tracker-api.herokuapp.com/v2/locations?timelines=1")
-      .then(res => res.ok ? this.datosJSON(res) : this.recuperarCopia())
-      .then(datos => {
-        if(Object.keys(datos.locations[0].timelines.confirmed.timeline).length >= 
-          Object.keys(JSON.parse(localStorage.getItem('copiaDatos')).locations[0].timelines.confirmed.timeline).length){
-          this.datos = datos;
-        }else{
-          this.backup.copiaRecuperada = true;
-          this.datos = copiaJSON;
-        }
-        this.crearContinentes();
-        this.crearMundo();
-          Array.from(this.datos.locations).forEach(p => {
-          if (!this.existePais(p.country)) {
-            this.crearPais(p);
-          }else{
-            this.buscarPais(p.country).subRegiones = true;
-          }
-          Object.keys(p.timelines.confirmed.timeline).forEach((fecha,i) => {
-            this.rellenarDatos(p,fecha,i);
-          });
-        });
-        this.rellenarDatosSubRegiones();
-        this.crearFechaInicial(this.datos);
-        this.modificarChart();
-        this.regionSeleccionada = this.buscarRegion("world");
-        this.filtro = "diagnosticados";
-        this.buscarRegion("VA").nombre = "Vatican";
-        this.buscarRegion("AD").icono = "flag-icon-xx";
-        this.montado = true;
-        this.audio.tag = document.querySelector("#audio");
-        $(function () {
-          $('[data-toggle="tooltip"]').tooltip()
-        })
-        if(this.backup.nuevaCopia){
-          localStorage.setItem('fechaCopia', this.fechaToString(this.calendarOptions.rangoFecha.end));
-          localStorage.setItem('copiaDatos', JSON.stringify(datos));
-        }
-        if(this.backup.copiaRecuperada){
-          let modalCopia = document.querySelector("#modalCopia");
-          modalCopia.style.display = "block";
-          setTimeout(() => { modalCopia.style.opacity = "0";}, 5000);
-          setTimeout(() => { modalCopia.style.display = "none";}, 8000);
-        }
-      })
-    
+    .then(res => this.respuestaOk(res))
+    .then(resJSON => this.existeNuevaVersion(resJSON))
+    .then(datos => {
+      this.funcionesIniciales(datos);
+      this.guardarBackup(datos);
+    })
+    .catch(error => this.cargarBackup(error));
     }
-}
-  
-      
-   
+  }
 </script>
 
