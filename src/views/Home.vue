@@ -1600,8 +1600,8 @@ export default {
         ];
       },
     fecha() {
-      return (new Date(this.calendarOptions.fechaSeleccionada - (new Date()).getTimezoneOffset() * 60000)).toISOString().slice(0, -14) + "T00:00:00Z";
-      ;},
+        return (new Date(this.calendarOptions.fechaSeleccionada - (new Date()).getTimezoneOffset() * 60000)).toISOString().slice(0, -14) + "T00:00:00Z";
+      },
     listadoFiltrado(){
           switch(this.filtros.listado){
             case "diagnosticados.total":
@@ -1631,11 +1631,12 @@ export default {
       this.windowWidth = window.innerWidth
     }
 
+    /*
     if(localStorage.getItem('backup')){
 
     }else{
 
-    }
+    }*/
 
     fetch("https://coronavirus-tracker-api.herokuapp.com/v2/locations?timelines=1")
       .then(res => res.ok ? this.datosJSON(res) : this.recuperarCopia())
