@@ -888,8 +888,6 @@ export default {
         final: require("@/assets/iconos/final.png"),
         coffin: require("@/assets/iconos/coffin.png"),
         },
-      enterAnimated:"animated zoomIn",
-      leaveAnimated:"",
       calendarOptions: {
         key: 0,
         attrs: [],
@@ -898,15 +896,6 @@ export default {
           end: "",},
         fechaSeleccionada: "",
         visible: false},
-      geoCargado: false,
-      areaCargado: false,
-      pieCargado: false,
-      smallLoader: {
-        name:"line-scale",
-        color: "white",
-        scaleText: .8,
-        scaleMini: 2,
-        scaleBig: 4},
       montado: "",
       filtro: "",
       mundo: "",
@@ -919,10 +908,7 @@ export default {
           ["AU", "NF", "NZ","FJ", "NC", "PG", "SB", "VU","FM", "GU", "KI", "MH", "MP", "NR", "PW",	"AS", "CK", "NU", "PF", "PN", "TK", "TO", "TV", "WF", "WS"]
         ],
       activeChart: "geo",
-      arrayInfectados: "",
-      divGraficos: true,
       fechaInicio: new Date("1/22/20"),
-      slider: 0,
       paises: [],
       chartSettings: {packages: ['geochart','corechart','bar'], mapsApiKey: KEYS.API_KEY},
       geoChartOptions: {
@@ -957,15 +943,12 @@ export default {
           }
         },
       geoChartEvents: {
-        regionClick: e => {
-          if (this.paises.some(p => p.codigo == e.region)) {
-             this.geoChartOptions.region = e.region;
-             this.regionSeleccionada = this.buscarRegion(e.region);
-          }
-        },
-        ready: () => {
-          this.geoCargado = true;
-          }
+          regionClick: e => {
+            if (this.paises.some(p => p.codigo == e.region)) {
+               this.geoChartOptions.region = e.region;
+               this.regionSeleccionada = this.buscarRegion(e.region);
+            }
+          },
         },
       areaChartOptions: {
         key: 0,
@@ -1039,11 +1022,6 @@ export default {
           startup: false,
           duration: 0,
          }},
-      areaChartEvents:{
-        ready: () => {
-          this.areaCargado = true;
-          }
-       },
       pieChartOptions: {
         colors: ["bfbf60"/*,"60bf66"*/,"bf6060"],
         is3D: true,
@@ -1066,11 +1044,6 @@ export default {
         backgroundColor: "222222",
         enableInteractivity: true,
         },
-      pieChartEvents: {
-        ready: () => {
-          this.pieCargado = true;
-          }
-        }
         };},
   methods: {
     datosJSON(res){
@@ -1657,6 +1630,13 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth
     }
+
+    if(localStorage.getItem('backup')){
+
+    }else{
+
+    }
+
     fetch("https://coronavirus-tracker-api.herokuapp.com/v2/locations?timelines=1")
       .then(res => res.ok ? this.datosJSON(res) : this.recuperarCopia())
       .then(datos => {
