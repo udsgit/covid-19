@@ -119,10 +119,10 @@
           <div class="col pl-0 pr-2 mt-2" id="columna-2">
             <!--Filtro paises-->
              <div class="row tarjeta mb-2 justify-content-around" id="filtroListado">
-               <img :src="icono.diagnosticado" :class="{ activo : filtros.listado == 'diagnosticados.total' }" @click="filtros.listado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
-               <img :src="icono.activo" :class="{ activo : filtros.listado == 'activos.total' }" @click="filtros.listado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
-               <img :src="icono.recuperado" :class="{ activo : filtros.listado == 'recuperados.total' }" @click="filtros.listado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
-               <img :src="icono.muerto" :class="{ activo : filtros.listado == 'muertos.total' }" @click="filtros.listado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
+               <img :src="icono.diagnosticado" :class="{ activo : filtroListado == 'diagnosticados.total' }" @click="filtroListado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
+               <img :src="icono.activo" :class="{ activo : filtroListado == 'activos.total' }" @click="filtroListado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
+               <img :src="icono.recuperado" :class="{ activo : filtroListado == 'recuperados.total' }" @click="filtroListado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
+               <img :src="icono.muerto" :class="{ activo : filtroListado == 'muertos.total' }" @click="filtroListado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
               </div>
             <!--Listado Paises-->
               <div class="overflow-auto" style="padding: 1px;" id="listado">
@@ -131,10 +131,10 @@
                    @click="cambiarRegionYMapa(pais)"
                   :key="i" v-for="(pais,i) in listadoFiltrado">
                   <div class="col" style="line-height: 100%;">
-                    {{ ( filtros.listado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
-                    filtros.listado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
-                    filtros.listado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
-                    filtros.listado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
+                    {{ ( filtroListado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
+                    filtroListado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
+                    filtroListado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
+                    filtroListado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@
                 <div class="col grande" id="area">
                   <!--Botones-->
                     <div id="filtros">
-                      <img @click="botones.area = !botones.area" :src="icono.todos" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
+                      <img @click="botones.area = !botones.area" :src="icono.diagnosticado" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
                       <img @click="cambiarFiltroArea($event,'diagnosticados.diario')" :src="icono.diagnosticado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.diario">
                       <img @click="cambiarFiltroArea($event,'activos.diario')" :src="icono.activo" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.diario">
                       <img @click="cambiarFiltroArea($event,'recuperados.diario')" :src="icono.recuperado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.diario">
@@ -297,10 +297,10 @@
           <div class="pr-2 mt-2" id="columna-3">
             <!--Filtro paises-->
              <div class="row tarjeta mb-2" id="filtroListado">
-               <img :src="icono.diagnosticado" :class="{ activo : filtros.listado == 'diagnosticados.total' }" @click="filtros.listado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
-               <img :src="icono.activo" :class="{ activo : filtros.listado == 'activos.total' }" @click="filtros.listado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
-               <img :src="icono.recuperado" :class="{ activo : filtros.listado == 'recuperados.total' }" @click="filtros.listado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
-               <img :src="icono.muerto" :class="{ activo : filtros.listado == 'muertos.total' }" @click="filtros.listado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
+               <img :src="icono.diagnosticado" :class="{ activo : filtroListado == 'diagnosticados.total' }" @click="filtroListado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
+               <img :src="icono.activo" :class="{ activo : filtroListado == 'activos.total' }" @click="filtroListado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
+               <img :src="icono.recuperado" :class="{ activo : filtroListado == 'recuperados.total' }" @click="filtroListado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
+               <img :src="icono.muerto" :class="{ activo : filtroListado == 'muertos.total' }" @click="filtroListado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
               </div>
             <!--Listado Paises-->
               <div class="overflow-auto mb-2" style="padding: 1px;" id="listado">
@@ -309,10 +309,10 @@
                   @click="cambiarRegionYMapa(pais)"
                   :key="i" v-for="(pais,i) in listadoFiltrado">
                   <div class="col" style="line-height: 100%;">
-                    {{ ( filtros.listado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
-                    filtros.listado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
-                    filtros.listado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
-                    filtros.listado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
+                    {{ ( filtroListado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
+                    filtroListado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
+                    filtroListado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
+                    filtroListado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
                   </div>
                 </div>
               </div>
@@ -346,7 +346,7 @@
                 <div class="col grande" id="area">
                   <!--Botones-->
                     <div id="filtros">
-                      <img @click="botones.area = !botones.area" :src="icono.todos" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
+                      <img @click="botones.area = !botones.area" :src="icono.diagnosticado" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
                       <img @click="cambiarFiltroArea($event,'diagnosticados.diario')" :src="icono.diagnosticado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.diario">
                       <img @click="cambiarFiltroArea($event,'activos.diario')" :src="icono.activo" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.diario">
                       <img @click="cambiarFiltroArea($event,'recuperados.diario')" :src="icono.recuperado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.diario">
@@ -464,10 +464,10 @@
             </div>
             <!--Filtro paises-->
              <div class="row tarjeta mb-2" id="filtroListado">
-               <img :src="icono.diagnosticado" :class="{ activo : filtros.listado == 'diagnosticados.total' }" @click="filtros.listado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
-               <img :src="icono.activo" :class="{ activo : filtros.listado == 'activos.total' }" @click="filtros.listado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
-               <img :src="icono.recuperado" :class="{ activo : filtros.listado == 'recuperados.total' }" @click="filtros.listado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
-               <img :src="icono.muerto" :class="{ activo : filtros.listado == 'muertos.total' }" @click="filtros.listado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
+               <img :src="icono.diagnosticado" :class="{ activo : filtroListado == 'diagnosticados.total' }" @click="filtroListado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
+               <img :src="icono.activo" :class="{ activo : filtroListado == 'activos.total' }" @click="filtroListado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
+               <img :src="icono.recuperado" :class="{ activo : filtroListado == 'recuperados.total' }" @click="filtroListado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
+               <img :src="icono.muerto" :class="{ activo : filtroListado == 'muertos.total' }" @click="filtroListado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
               </div>
             <!--Listado Paises-->
               <div class="overflow-auto mb-2" style="padding: 1px;" id="listado">
@@ -476,10 +476,10 @@
                   @click="cambiarRegionYMapa(pais)"
                   :key="i" v-for="(pais,i) in listadoFiltrado">
                   <div class="col" style="line-height: 100%;">
-                    {{ ( filtros.listado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
-                    filtros.listado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
-                    filtros.listado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
-                    filtros.listado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
+                    {{ ( filtroListado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
+                    filtroListado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
+                    filtroListado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
+                    filtroListado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
                   </div>
                 </div>
               </div>
@@ -513,7 +513,7 @@
                   <!--Botones-->
                     <img @click="agrandarChart('area')" class="redimencionarArea" :src="icono.agrandar" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.redimencionar">
                     <div id="filtros">
-                      <img @click="botones.area = !botones.area" :src="icono.todos" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
+                      <img @click="botones.area = !botones.area" :src="icono.diagnosticado" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
                       <img @click="cambiarFiltroArea($event,'diagnosticados.diario')" :src="icono.diagnosticado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.diario">
                       <img @click="cambiarFiltroArea($event,'activos.diario')" :src="icono.activo" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.diario">
                       <img @click="cambiarFiltroArea($event,'recuperados.diario')" :src="icono.recuperado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.diario">
@@ -657,7 +657,7 @@
                   <!--Botones-->
                     <img @click="agrandarChart('area')" class="redimencionarArea" :src="icono.agrandar" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.redimencionar">
                     <div id="filtros">
-                      <img @click="botones.area = !botones.area" :src="icono.todos" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
+                      <img @click="botones.area = !botones.area" :src="icono.diagnosticado" id="filtroAreaActivo" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.area.activo">
                       <img @click="cambiarFiltroArea($event,'diagnosticados.diario')" :src="icono.diagnosticado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.diario">
                       <img @click="cambiarFiltroArea($event,'activos.diario')" :src="icono.activo" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.diario">
                       <img @click="cambiarFiltroArea($event,'recuperados.diario')" :src="icono.recuperado" :class="{ activo : botones.area }" data-placement="right" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.diario">
@@ -676,10 +676,10 @@
           <div class="px-2" id="columna-3">
            <!--Filtro paises-->
              <div class="row tarjeta mt-2" id="filtroListado">
-               <img :src="icono.diagnosticado" :class="{ activo : filtros.listado == 'diagnosticados.total' }" @click="filtros.listado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
-               <img :src="icono.activo" :class="{ activo : filtros.listado == 'activos.total' }" @click="filtros.listado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
-               <img :src="icono.recuperado" :class="{ activo : filtros.listado == 'recuperados.total' }" @click="filtros.listado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
-               <img :src="icono.muerto" :class="{ activo : filtros.listado == 'muertos.total' }" @click="filtros.listado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
+               <img :src="icono.diagnosticado" :class="{ activo : filtroListado == 'diagnosticados.total' }" @click="filtroListado = 'diagnosticados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.diagnosticados.total">
+               <img :src="icono.activo" :class="{ activo : filtroListado == 'activos.total' }" @click="filtroListado = 'activos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.activos.total">
+               <img :src="icono.recuperado" :class="{ activo : filtroListado == 'recuperados.total' }" @click="filtroListado = 'recuperados.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.recuperados.total">
+               <img :src="icono.muerto" :class="{ activo : filtroListado == 'muertos.total' }" @click="filtroListado = 'muertos.total'" data-placement="left" data-toggle="tooltip" title="" :data-original-title="tooltip.filtros.muertos.total">
               </div>
             <!--Listado Paises-->
               <div class="mb-2 mt-2 overflow-auto" style="padding: 1px;" id="listado">
@@ -688,10 +688,10 @@
                   @click="cambiarRegionYMapa(pais)"
                   :key="i" v-for="(pais,i) in listadoFiltrado">
                   <div class="col" style="line-height: 100%;">
-                    {{ ( filtros.listado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
-                    filtros.listado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
-                    filtros.listado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
-                    filtros.listado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
+                    {{ ( filtroListado=="diagnosticados.total"? pais.historial[indexFecha(pais, fecha)].diagnosticados.total : 
+                    filtroListado=="activos.total"? pais.historial[indexFecha(pais, fecha)].activos.total : 
+                    filtroListado=="recuperados.total"? pais.historial[indexFecha(pais, fecha)].recuperados.total : 
+                    filtroListado=="muertos.total"? pais.historial[indexFecha(pais, fecha)].muertos.total : 0) | numeroCorto}} 
                   </div>
                 </div>
               </div>
@@ -700,7 +700,7 @@
       </div>
     </div>
   <!--ExtrasGlobales-->
-    <!--Modal Copia-->
+    <!--Modal Backup-->
       <div id="modalCopia">
         <div class="contenido">
            {{ infoDatos}}
@@ -776,6 +776,7 @@ export default {
   name: "App",
   data() {
     return {
+      options: "",
       infoDatos : "",
       listadoFechas: "",
       backup: "",
@@ -802,7 +803,7 @@ export default {
             redimencionar: "AGRANDAR",
           },
           area: {
-            activo: "TOTAL TODOS",
+            activo: "TOTAL DIAGNOSTICADOS",
             redimencionar: "AGRANDAR",
           },
           todos:{
@@ -826,10 +827,7 @@ export default {
           },
          }
        },
-      filtros: {
-        geo: "diagnosticado",
-        listado: "diagnosticados.total"
-       },
+      filtroListado: "diagnosticados.total",
       botones: {
         geo: false,
         area: false
@@ -887,7 +885,6 @@ export default {
         fechaSeleccionada: "",
         visible: false},
       montado: "",
-      filtro: "",
       mundo: "",
       continentes: "",
       continents : [
@@ -942,7 +939,7 @@ export default {
         },
       areaChartOptions: {
         key: 0,
-        tipoDatos: "todos.total",
+        tipoDatos: "diagnosticados.diario",
         tooltip:{
           trigger: "focus"
          },
@@ -1056,14 +1053,14 @@ export default {
       this.rellenarDatosSubRegiones();
       this.crearFechaInicial();
       this.modificarChart();
-      this.regionSeleccionada = this.buscarRegion("world");
-      this.filtro = "diagnosticados";
       this.buscarRegion("VA").nombre = "Vatican";
       this.buscarRegion("AD").icono = "flag-icon-xx";
       this.audio.tag = document.querySelector("#audio");
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
+      this.regionSeleccionada = localStorage.getItem('region') ? JSON.parse(localStorage.getItem('region')) : this.mundo;
+      this.geoChartOptions.region = this.regionSeleccionada.codigo != "XX" ? this.regionSeleccionada.codigo : "world";
       this.modalBackup();
       this.montado = true;
      },
@@ -1074,12 +1071,8 @@ export default {
       setTimeout(() => { modalCopia.style.display = "none";}, 8000);
      },
     cargarBackup(error){
- 
-        console.log(error);
-  
-      
+      console.log(error);
       this.funcionesIniciales(this.backup.datos);
-      this.infoDatos = "Cargando copia local actualizada...";
      },
     guardarBackup(datos){
       let backup = {
@@ -1093,14 +1086,21 @@ export default {
       this.backup = localStorage.getItem('backup') ? JSON.parse(localStorage.getItem('backup')) : BACKUP;
      },
     existeNuevaVersion(resJSON){
-      if(Object.keys(resJSON.locations[0].timelines.confirmed.timeline).length <= this.backup.version){
-        throw Error("version vieja");
+      let versionServidor = Object.keys(resJSON.locations[0].timelines.confirmed.timeline).length;
+   
+      if(versionServidor == this.backup.version){
+        this.infoDatos = "Cargando copia local actualizada...";
+        throw Error("Error forzado, cargando copia local actualizada");
+      }else if(versionServidor < this.backup.version){
+        this.infoDatos = "Servidor caído, cargando última copia local...";
+        throw Error(resJSON.statusText);
       }
       return resJSON;
      },
     respuestaOk(res){
       if (!res.ok) {
-        throw Error("NO OK: " + res.statusText);
+        this.infoDatos = "Servidor caído, cargando última copia local...";
+        throw Error(res.statusText);
       }
       return res.json();
      },
@@ -1168,6 +1168,8 @@ export default {
           break;
       }
       this.areaChartOptions.tipoDatos = opcion;
+      this.options.filtros.area = opcion;
+      localStorage.setItem('options', JSON.stringify(this.options));
       this.botones.area = !this.botones.area;
      },
     cambiarFiltroGeo(e,opcion){
@@ -1193,6 +1195,8 @@ export default {
             break;
         }
         this.geoChartOptions.tipoDatos = opcion;
+        this.options.filtros.geo = opcion;
+        localStorage.setItem('options', JSON.stringify(this.options));
         this.botones.geo = !this.botones.geo;
       },
     cambiarDia(dia){
@@ -1556,7 +1560,11 @@ export default {
       if(valorAntiguo != valorNuevo){
         this.modificarChart();
       }
-     }},
+     },
+    regionSeleccionada(valorNuevo){
+        localStorage.setItem('region', JSON.stringify(valorNuevo));
+        }
+      },
   computed: {
     pantalla(){
         if(this.windowWidth < 576){
@@ -1644,7 +1652,7 @@ export default {
         return (new Date(this.calendarOptions.fechaSeleccionada - (new Date()).getTimezoneOffset() * 60000)).toISOString().slice(0, -14) + "T00:00:00Z";
       },
     listadoFiltrado(){
-          switch(this.filtros.listado){
+          switch(this.filtroListado){
             case "diagnosticados.total":
               return this.paises.slice().sort(
                 (a, b) =>
