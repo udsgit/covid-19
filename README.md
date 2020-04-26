@@ -77,6 +77,12 @@ Blanco ( 0 ), Verde ( 1 – 1.000 ), Celeste ( 1.000 – 10.000 ), Amarillo ( 10
 - **Click primario:** se selecciona dicha región y todos los datos correspondientes a la región seleccionada se actualizaran.
 - **Rueda del ratón:** mueve verticalmente el listado.
 
+### DISEÑO RESPONSIVO :iphone:
+
+![Screenshot](images_readme/responsivo.png)
+
+> Diseño responsivo que se adapta a todas las pantallas.
+
 ### DETALLES :warning:
 
 - **Activos y recuperados:***  actualmente JHU CSSE (es la universidad de donde recogemos los datos oficiales)  han dejado de proporcionar los datos de las personas recuperadas, por lo tanto se muestra '0', como medida momentaria se ha desactivado varias funciones.
