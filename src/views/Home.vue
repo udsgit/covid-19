@@ -1033,6 +1033,12 @@ export default {
         },
         };},
   methods: {
+    limpiarLocalStorage(){
+      if(localStorage.getItem("limpio") != "si"){
+        localStorage.clear();
+        localStorage.setItem("limpio", "si");
+      }
+     },
     crearPaisesYRellenarDatos(locations){
        Array.from(locations).forEach(p => {
         if (!this.existePais(p.country)) {
@@ -1059,7 +1065,7 @@ export default {
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
-      this.regionSeleccionada = localStorage.getItem('region') ? JSON.parse(localStorage.getItem('region')) : this.mundo;
+      this.regionSeleccionada = localStorage.getItem('region') ? this.buscarPais(JSON.parse(localStorage.getItem('region'))) : this.mundo;
       this.geoChartOptions.region = this.regionSeleccionada.codigo != "XX" ? this.regionSeleccionada.codigo : "world";
       this.modalBackup();
       this.montado = true;
@@ -1086,8 +1092,13 @@ export default {
       this.backup = localStorage.getItem('backup') ? JSON.parse(localStorage.getItem('backup')) : BACKUP;
      },
     existeNuevaVersion(resJSON){
+      
       let versionServidor = Object.keys(resJSON.locations[0].timelines.confirmed.timeline).length;
-   
+
+      console.log("version servidor: " + versionServidor);
+      console.log("version backup: " + this.backup.version);
+
+  
       if(versionServidor == this.backup.version){
         this.infoDatos = "Cargando copia local actualizada...";
         throw Error("Error forzado, cargando copia local actualizada");
@@ -1254,10 +1265,10 @@ export default {
         case "geo":
           this.chart.area = !this.chart.area;
           if(this.chart.area){
-            document.querySelector(".redimencionarGeo").src = this.icono.agrandar;
+            document.querySelectorAll(".redimencionarGeo").forEach(e => e.src = this.icono.agrandar);
             this.tooltip.filtros.geo.redimencionar = "AGRANDAR";
           }else{
-            document.querySelector(".redimencionarGeo").src = this.icono.achicar;
+            document.querySelectorAll(".redimencionarGeo").forEach(e => e.src = this.icono.achicar);
             this.tooltip.filtros.geo.redimencionar = "ACHICAR";
           }
           this.geoChartOptions.key++;
@@ -1265,10 +1276,10 @@ export default {
         case "area":
           this.chart.geo = !this.chart.geo;
           if(this.chart.geo){
-            document.querySelector(".redimencionarArea").src = this.icono.agrandar;
+            document.querySelectorAll(".redimencionarArea").forEach(e => e.src = this.icono.agrandar);
             this.tooltip.filtros.area.redimencionar = "AGRANDAR";
           }else{
-            document.querySelector(".redimencionarArea").src = this.icono.achicar;
+            document.querySelectorAll(".redimencionarArea").forEach(e => e.src = this.icono.achicar);
             this.tooltip.filtros.area.redimencionar = "ACHICAR";
           }
           this.areaChartOptions.key++;
@@ -1327,8 +1338,16 @@ export default {
             return 0;
         }
       },
-    buscarPais(nombrePais){
-        return this.paises.find(e => e.nombre == nombrePais);
+    buscarPais(nombreRegion){
+        if(this.paises.find(e => e.nombre == nombreRegion) != undefined){
+          return this.paises.find(e => e.nombre == nombreRegion);
+        }else if(Object.keys(this.continentes).find(e => e == nombreRegion)){
+          return this.continentes[nombreRegion];
+        }else if(this.mundo.nombre == nombreRegion){
+          return this.mundo;
+        }else{
+          return undefined;
+        }
       },
     crearContinentes(){
         this.continentes = {
@@ -1562,7 +1581,7 @@ export default {
       }
      },
     regionSeleccionada(valorNuevo){
-        localStorage.setItem('region', JSON.stringify(valorNuevo));
+        localStorage.setItem('region', JSON.stringify(valorNuevo.nombre));
         }
       },
   computed: {
@@ -1674,6 +1693,7 @@ export default {
         } 
       },
   mounted() {
+    this.limpiarLocalStorage();
     window.onresize = () => {
       this.windowWidth = window.innerWidth
     }
