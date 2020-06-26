@@ -5,6 +5,7 @@ Es una aplicación web que sirve para informar de forma interactiva la evolució
 ## INFO SOBRE EL PROYECTO
 
 **Motivo:** Proyecto final de curso (DAW)
+
 **Duración:** 2/20 - 4/20 (2 Meses)
 
 Es el primer proyecto "grande" que desarrollo y más con un framework nuevo para mí, VUE. Me ha servido para entender un poco mejor el uso de computed, watchers, hooks y sobre todo el utilizar librerías externas en JS, ya que hasta ahora nunca las había usado. La parte negativa del proyecto es que desarrolle todo en un mismo componente y al final se ha quedado bastante "spaghetti" el código. Pero gracias a esta experiencia le doy más importancia al CLEAN CODE y he comprendido más la necesidad de usar lenguajes con un tipado más fuerte (TypeScript), test unitarios y organizar mejor el código al dividirlo por componentes. En el apartado Web Interactiva se puede probar la aplicación.
