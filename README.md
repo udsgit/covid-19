@@ -1,16 +1,17 @@
 # COVID-19
 
-Es una aplicación web que sirve para informar de forma interactiva la evolución del COVID-19 de la región seleccionada (Mundo/Continente/País) con la posibilidad de aplicar filtros y selección de fecha.
+## **Resumen**
+
+Es una aplicación web que sirve para informar de forma interactiva la evolución del **COVID-19** de la región seleccionada (Mundo/Continente/País) con la posibilidad de aplicar filtros y selección de fecha.
 
 ## Información sobre el proyecto.
 
-**Motivo:** Proyecto final de curso (DAW).
+**Motivo:** Proyecto final de curso (DAW).  
+**Fecha:** Febrero 2020.  
+**Duración:** 2 Meses.  
+**Autor:** Emmanuel González.  
 
-**Fecha:** Febrero 2020.
-
-**Duración:** 2 Meses.
-
-Es el primer proyecto "grande" que desarrollo y más con un framework nuevo para mí, VUE. Me ha servido para entender un poco mejor el uso de computed, watchers, hooks y sobre todo el utilizar librerías externas en JS, ya que hasta ahora nunca las había usado.
+**Comentarios:** Es el primer proyecto grande que desarrollo y más con un framework nuevo para mí, **VUE**. Me ha servido para entender un poco mejor el uso de computed, watchers, hooks y sobre todo el utilizar librerías externas en **JS**, ya que hasta ahora nunca las había usado. La parte negativa del proyecto es que desarrolle todo en un mismo componente y al final se ha quedado bastante *spaghetti* el código. Pero gracias a esta experiencia le doy más importancia al **Clean Code** y he comprendido más la necesidad de usar lenguajes con un tipado más fuerte como puede ser **TypeScript**, hacer **test unitarios** y organizar mejor el código al dividirlo por componentes.
 
 ## Web Interactiva
 
@@ -20,7 +21,24 @@ Es el primer proyecto "grande" que desarrollo y más con un framework nuevo para
 
 - https://github.com/ExpDev07/coronavirus-tracker-api 
 
+## **Instalación**
+
+1. Descargar o clonar el repositorio.
+2. Dentro de la carpeta **src** crear un archivo llamado **keys.json**.
+3. Añade las siguientes lineas al archivo anterior y sustituye *YOUR KEY* por tu credencial de la **API** de **Google Charts**.
+
+```json
+{
+    "API_KEY" : "YOUR KEY"
+}
+```
+
+4. Listo, recuerda que el código es de **VUE**, te hara falta compilarlo si quisieras ejecutarlo en local.
+
 ## Guía de uso
+
+1. Abrir el enlace del apartado **Web Interactiva** o ejecuta el archivo generado luego de compìlar el archivo de **VUE**.
+2. Esperar que cargue los datos y ya puedes utilizar la aplicación web, a continuación tienes información para conocer para que sirve cada apartado.
 
 ### Región :pushpin:
 
@@ -102,6 +120,4 @@ Todos los filtros correspondientes a las personas recuperadas están desactivado
 
 - **Agrandar/Achicar:**** Esta funcionalidad solo sirve para aprovechar las pantallas grandes, por lo tanto esta desactivado en pantallas pequeñas y medianas.
 
-## Conclusión final
 
-La parte negativa del proyecto es que desarrolle todo en un mismo componente y al final se ha quedado bastante "spaghetti" el código. Pero gracias a esta experiencia le doy más importancia al CLEAN CODE y he comprendido más la necesidad de usar lenguajes con un tipado más fuerte (TypeScript), test unitarios y organizar mejor el código al dividirlo por componentes. En el apartado Web Interactiva se puede probar la aplicación.
