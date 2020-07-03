@@ -37,15 +37,18 @@ https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
 ## **Technologies**
 
-- [Vue](https://vuejs.org/)
-- [Bootstrap 4](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
-- [Sass](https://sass-lang.com/)
-- Libraries
-  - [Vue-Google-Charts](https://github.com/devstark-com/vue-google-charts)
-  - [V-Calendar](https://vcalendar.io/)
-  - [Flag-Icon-Css](https://github.com/lipis/flag-icon-css)
-- API REST
-  - [Coronavirus-Tracker-Api](https://github.com/ExpDev07/coronavirus-tracker-api)
+* **Html**
+* **Css**
+* **JavaScript**
+- [**Vue**](https://vuejs.org/)
+- [**Bootstrap 4**](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+- [**Sass**](https://sass-lang.com/)
+- **Libraries**
+  - [**Vue-Google-Charts**](https://github.com/devstark-com/vue-google-charts)
+  - [**V-Calendar**](https://vcalendar.io/)
+  - [**Flag-Icon-Css**](https://github.com/lipis/flag-icon-css)
+- **Api rest**
+  - [**Coronavirus-Tracker-Api**](https://github.com/ExpDev07/coronavirus-tracker-api)
 
 ## **Setup**
 
