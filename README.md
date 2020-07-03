@@ -55,14 +55,14 @@ This project was not planned so you can continue it and more with the madness of
 
 1. Clone/Download the repository.
 
-```bash
+```console
 git clone https://github.com/udsgit/covid-19.git
 ```
 
 2. Move to the directory **src** and create a new file called **keys.json**.
 3. Edit the previous file and add the following lines replacing **_YOUR KEY_** with your google chart api credential.
 
-```perl
+```yaml
 {
   "API_KEY": "YOUR KEY"
 }
@@ -70,7 +70,7 @@ git clone https://github.com/udsgit/covid-19.git
 
 4. You may have to install the packages with **NPM**.
 
-```bash
+```console
 npm install
 ```
 
