@@ -1,123 +1,96 @@
-# COVID-19
+# **COVID-19**
 
-## **Resumen**
+Interactive web application about **COVID-19** 🦠 with graphs 📈, filter options, date 📅 and with a powerful [Wiki](https://github.com/udsgit/covid-19/wiki/Wiki).
 
-Es una aplicación web que sirve para informar de forma interactiva la evolución del **COVID-19** de la región seleccionada (Mundo/Continente/País) con la posibilidad de aplicar filtros y selección de fecha.
+## **Table of contents**
 
-## Información sobre el proyecto.
+- [**COVID-19**](#covid-19)
+  - [**Table of contents**](#table-of-contents)
+  - [**General info**](#general-info)
+  - [**Screenshots**](#screenshots)
+  - [**Technologies**](#technologies)
+  - [**Setup**](#setup)
+  - [**Usage**](#usage)
+  - [**Status**](#status)
+  - [**Contact**](#contact)
 
-**Motivo:** Proyecto final de curso (DAW).  
-**Fecha:** Febrero 2020.  
-**Duración:** 2 Meses.  
-**Autor:** Emmanuel González.  
+## **General info**
 
-**Comentarios:** Es el primer proyecto grande que desarrollo y más con un framework nuevo para mí, **VUE**. Me ha servido para entender un poco mejor el uso de computed, watchers, hooks y sobre todo el utilizar librerías externas en **JS**, ya que hasta ahora nunca las había usado. La parte negativa del proyecto es que desarrolle todo en un mismo componente y al final se ha quedado bastante *spaghetti* el código. Pero gracias a esta experiencia le doy más importancia al **Clean Code** y he comprendido más la necesidad de usar lenguajes con un tipado más fuerte como puede ser **TypeScript**, hacer **test unitarios** y organizar mejor el código al dividirlo por componentes.
+**Date**: February, 2020.  
+**Duration**: 2 Months.
 
-## Web Interactiva
+I started this project because I needed a final project to finish my associate degree (DAW) and it was my first "big" project. Since I wanted a challenge, I wanted to take advantage and learn **Vue** and use external libraries. For this reason, many sections of the web are in Spanish.
 
-- https://udsgit.github.io/covid-19
+I've finally got it but I have made many development failures and for not developing each component separately finally the code has become too long and not very scalable and usable 😔, but it has helped to value more the **Clean Code** and I hope that my next project is divided into components as well as using TypeScript and some kind of test 😀.
 
-## Repositorio usado
+Another penalty of the project is that at the beginning of using the REST API, **JHU** provided the data of the recovered people. Thanks to this, it was able to give the information of the recovered and active people (all diagnosed except the recovered and dead), but a few months ago, unfortunately, JHU stopped providing such information and it was a cold water hit. For this reason it is because 0 recovered are shown and the active people are not real, since they still need to subtract the recovered ones.
 
-- https://github.com/ExpDev07/coronavirus-tracker-api 
+> ## **Recovered cases showing 0**
+>
+> **JHU** (our main data provider) no longer provides data for amount of recoveries, and as a result, the API will be showing 0 for this statistic. Apologies for any inconvenience. Hopefully we'll be able to find an alternative data-source that offers this.
 
-## **Instalación**
+https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
-1. Descargar o clonar el repositorio.
-2. Dentro de la carpeta **src** crear un archivo llamado **keys.json**.
-3. Añade las siguientes lineas al archivo anterior y sustituye *YOUR KEY* por tu credencial de la **API** de **Google Charts**.
+## **Screenshots**
+
+> ![Screenshot](images_readme/example.png)
+> _Web example with all filters visible._
+
+## **Technologies**
+
+- [Vue](https://vuejs.org/)
+- [Bootstrap 4](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+- [Sass](https://sass-lang.com/)
+- Libraries
+  - [Vue-Google-Charts](https://github.com/devstark-com/vue-google-charts)
+  - [V-Calendar](https://vcalendar.io/)
+  - [Flag-Icon-Css](https://github.com/lipis/flag-icon-css)
+- API REST
+  - [Coronavirus-Tracker-Api](https://github.com/ExpDev07/coronavirus-tracker-api)
+
+## **Setup**
+
+To run it, you just need to pen the demo [Demo](https://udsgit.github.io/covid-19).
+
+This project was not planned so you can continue it and more with the madness of having everything in one component, but if you want to try anyway, here are the steps...
+
+1. Clone/Download the repository.
+
+```bash
+git clone https://github.com/udsgit/covid-19.git
+```
+
+2. Move to the directory **src** and create a new file called **keys.json**.
+3. Edit the previous file and add the following lines replacing **_YOUR KEY_** with your google chart api credential.
 
 ```json
 {
-    "API_KEY" : "YOUR KEY"
+  "API_KEY": "YOUR KEY"
 }
 ```
 
-4. Listo, recuerda que el código es de **VUE**, te hara falta compilarlo si quisieras ejecutarlo en local.
+4. You may have to install the packages with **NPM**.
 
-## Guía de uso
+```
+npm install
+```
 
-1. Abrir el enlace del apartado **Web Interactiva** o ejecuta el archivo generado luego de compìlar el archivo de **VUE**.
-2. Esperar que cargue los datos y ya puedes utilizar la aplicación web, a continuación tienes información para conocer para que sirve cada apartado.
+5. If you had an error, you will have to manually install some dependency.
+6. And remember that to run the project, you will have to build it to generate the file **index.html**.
 
-### Región :pushpin:
+## **Usage**
 
-![Screenshot](images_readme/region.png)
+1. Open the link from the [Demo](https://udsgit.github.io/random-teg) or open the file **index.html** if you followed the previous steps.
+2. The first load maybe takes a few seconds to fetch the data from the API, so be patient 🙃.
+3. When everything is already loaded you can use it.
+4. Finally, I recommend you look at the [Wiki](https://github.com/udsgit/covid-19/wiki/Wiki) that I have created that explains each sections for what it is for and how it works, even with screenshots 👍.
 
-> Indica la región seleccionada, mostrando su nombre y su imagen (bandera o icono) para saber a quien pertenece los datos mostrados en ese momento.
+## **Status**
 
-### Fecha :date:
+Project is: **_Completed._**
 
-![Screenshot](images_readme/fecha.png)
+Because I have managed to do what I wanted, but it is likely that from time to time I will make a commit adding or correcting things.
 
-> Indica la fecha actual de los datos mostrados, también se puede cambiar la fecha con los botones o con el calendario, y al darle al 'play' ira aumentando un día cada segundo hasta la última fecha disponible (todos los datos se actualizaran según la fecha actual).
+## **Contact**
 
-### Datos :label:
-
-![Screenshot](images_readme/datos.png)
-
-> Proporciona los datos actuales de los diagnosticados, activos, recuperados y muertos según la región y fecha seleccionados*.
-
-### Pie chart :dvd:
-
-![Screenshot](images_readme/pie.png)
-
-> Es un gráfico que nos proporciona de manera visual el porcentaje de la cantidad de personas activas, recuperadas y muertas. La suma total corresponde a los diagnosticados*.
-
-### Datos y créditos :credit_card:
-
-![Screenshot](images_readme/creditos.png)
-
-> Proporciona información de donde se han obtenido los datos y informa de los créditos de los recursos utilizados por terceros (con sus enlaces), también explica el motivo de porque los datos de las personas 'activas' y 'recuperadas' no son correctos y hay un botón para activar un modo 'especial' para la web.
-
-### Geo chart :world_map:
-
-![Screenshot](images_readme/geo.png)
-
-> Representa en forma de mapa de calor la región seleccionada.
-
-- **Filtros:** actualiza los datos del mapa según el filtro seleccionado (total diagnosticados, total activos, total recuperados o total - muertos).*
-- **Agrandar/Achicar:** agrande el mapa para que ocupe todo el alto de la página ocultando el gráfico de área o lo vuelve a achicar activando ambos gráficos.**
-- **Al pasar el ratón por encima:** muestra la etiqueta de la región seleccionada con sus datos (según filtro).
-- **Al hacer click primario:** se selecciona dicha región y todos los datos correspondientes a la región seleccionada se actualizaran,  también el mapa mostrara dicha región.
-- **Al hacer click secundario:** se desplegara un menú radial, con accesos directos a los continentes y al mundo, al seleccionar alguno actualizaran todos los datos correspondientes a la región seleccionada.
-- **Leyenda:** muestra de menor a mayor la representación de los colores del mapa de calor.
-Blanco ( 0 ), Verde ( 1 – 1.000 ), Celeste ( 1.000 – 10.000 ), Amarillo ( 10.000 – 100.000) , Rojo ( 100.000 – 1.000.000 ), Negro (  > 1.000.000 ).
-
-### Area chart :chart_with_upwards_trend:
-
-![Screenshot](images_readme/area.png)
-
-> Representa en forma de gráfico de área la evolución según el filtro de la región seleccionada.
-
-- **Filtros:** actualiza los datos del área según el filtro seleccionado (diagnosticados diarios, activos diarios, recuperados diarios, muertos diarios y total todos).*
-- **Agrandar/Achicar:** agrande el mapa para que ocupe todo el alto de la página ocultando el gráfico de mapa o lo vuelve a achicar activando ambos gráficos.**
-- **Al pasar el ratón por encima o hacer click:** muestra una etiqueta con los datos de ese punto seleccionado.
-- **Al mantener pulsado el click primario:** se puede seleccionar horizontalmente partes del gráfico para aumentar su tamaño y visualizarlo mejor.
-- **Al hacer click secundario:** vuelve al tamaño normal.
-- **Leyenda:** Muestra el número de datos en el eje vertical, y la fecha en el eje horizontal.
-
-### Ranking mundial :trophy:
-
-![Screenshot](images_readme/listado.png)
-
-> Son los únicos datos que no están vinculados a la región seleccionada (pero si a la fecha), muestra de forma ordenada de mayor a menor el ranking mundial de los países según el filtro seleccionado, indica la cantidad redondeada y su bandera.
-
-- **Filtros:** cambia el filtro del listado según el total de diagnosticados, total activos, total recuperados y total muertos*.
-- **Click primario:** se selecciona dicha región y todos los datos correspondientes a la región seleccionada se actualizaran.
-- **Rueda del ratón:** mueve verticalmente el listado.
-
-### Diseño responsivo :iphone:
-
-![Screenshot](images_readme/responsivo.png)
-
-> Diseño responsivo que se adapta a todas las pantallas.
-
-### Detalles :warning:
-
-- **Activos y recuperados:***  actualmente JHU CSSE (es la universidad de donde recogemos los datos oficiales)  han dejado de proporcionar los datos de las personas recuperadas, por lo tanto se muestra '0', como medida momentaria se ha desactivado varias funciones.
-Todos los filtros correspondientes a las personas recuperadas están desactivados (incluye Geo Chart, Area Chart, Pie Chart, Ranking Mundial) y el calculo de los 'Activos' no es correcto ya que faltaría sumarle la cantidad de las personas recuperadas.
-
-- **Agrandar/Achicar:**** Esta funcionalidad solo sirve para aprovechar las pantallas grandes, por lo tanto esta desactivado en pantallas pequeñas y medianas.
-
-
+Created by [@Emmanuel](https://www.linkedin.com/in/emagleza/), feel free to contact me!
