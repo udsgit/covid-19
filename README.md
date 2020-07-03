@@ -37,9 +37,9 @@ https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
 ## **Technologies**
 
-* **Html**
-* **Css**
-* **JavaScript**
+- **Html**
+- **Css**
+- **JavaScript**
 - [**Vue**](https://vuejs.org/)
 - [**Bootstrap 4**](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [**Sass**](https://sass-lang.com/)
