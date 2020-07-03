@@ -33,8 +33,7 @@ https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
 ## **Screenshots**
 
-> ![Screenshot](images_readme/example.png)
-> _Web example with all filters visible._
+> ![Screenshot](images_readme/example.png) > _Web example with all filters visible._
 
 ## **Technologies**
 
@@ -63,7 +62,7 @@ git clone https://github.com/udsgit/covid-19.git
 2. Move to the directory **src** and create a new file called **keys.json**.
 3. Edit the previous file and add the following lines replacing **_YOUR KEY_** with your google chart api credential.
 
-```json
+```perl
 {
   "API_KEY": "YOUR KEY"
 }
@@ -71,7 +70,7 @@ git clone https://github.com/udsgit/covid-19.git
 
 4. You may have to install the packages with **NPM**.
 
-```
+```bash
 npm install
 ```
 
