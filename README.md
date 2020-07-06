@@ -40,7 +40,7 @@ You can try it using the [Demo](https://udsgit.github.io/covid-19), but I recomm
 
 ## **Screenshots**
 
-> <img src="images_readme/example.png" width="300"/><br><i>Web example with all filters visible</i>
+> <img src="images_readme/example.png" height="150"/><br><i>Web example with all filters visible</i>
 
 ## **Technologies**
 
