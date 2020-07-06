@@ -7,6 +7,7 @@ Interactive web application about **COVID-19** 🦠 with graphs 📈, filter opt
 - [**COVID-19**](#covid-19)
   - [**Table of contents**](#table-of-contents)
   - [**General info**](#general-info)
+  - [**Demo**](#demo)
   - [**Screenshots**](#screenshots)
   - [**Technologies**](#technologies)
   - [**Setup**](#setup)
@@ -31,6 +32,13 @@ Another penalty of the project is that at the beginning of using the REST API, *
 
 https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
+## **Demo**
+
+You can try it using the [Demo](https://udsgit.github.io/covid-19), but I recommend that you first take a look at the [Wiki](https://github.com/udsgit/covid-19/wiki/Wiki) to know all the functionalities.
+
+> ![Screenshot](images_readme/covid-demo.gif)  
+> _Demo gif_
+
 ## **Screenshots**
 
 > ![Screenshot](images_readme/example.png) > _Web example with all filters visible._
@@ -52,8 +60,6 @@ https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
 ## **Setup**
 
-To run it, you just need to pen the demo [Demo](https://udsgit.github.io/covid-19).
-
 This project was not planned so you can continue it and more with the madness of having everything in one component, but if you want to try anyway, here are the steps...
 
 1. Clone/Download the repository.
@@ -66,9 +72,7 @@ git clone https://github.com/udsgit/covid-19.git
 3. Edit the previous file and add the following lines replacing **_YOUR KEY_** with your google chart api credential.
 
 ```yaml
-{
-  "API_KEY": "YOUR KEY"
-}
+{ "API_KEY": "YOUR KEY" }
 ```
 
 4. You may have to install the packages with **NPM**.
