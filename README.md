@@ -36,13 +36,11 @@ https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
 You can try it using the [Demo](https://udsgit.github.io/covid-19), but I recommend that you first take a look at the [Wiki](https://github.com/udsgit/covid-19/wiki/Wiki) to know all the functionalities.
 
-> ![Screenshot](images_readme/covid-demo.gif)  
-> _Demo_
+> <img src="images_readme/demo.gif" width="300"/><br> > <i>Demo</i>
 
 ## **Screenshots**
 
-> ![Screenshot](images_readme/example.png)  
-> _Web example with all filters visible._
+> <img src="images_readme/example.png" width="300"/><br> > <i>Web example with all filters visible</i>
 
 ## **Technologies**
 
