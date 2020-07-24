@@ -85,7 +85,7 @@ npm install
 
 ## **Usage**
 
-1. Open the link from the [Demo](https://udsgit.github.io/random-teg) or open the file **index.html** if you followed the previous steps.
+1. Open the link from the [Demo](https://udsgit.github.io/covid-19) or open the file **index.html** if you followed the previous steps.
 2. The first load maybe takes a few seconds to fetch the data from the API, so be patient 🙃.
 3. When everything is already loaded you can use it.
 4. Finally, I recommend you look at the [Wiki](https://github.com/udsgit/covid-19/wiki/Wiki) that I have created that explains each sections for what it is for and how it works, even with screenshots 👍.
