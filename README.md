@@ -36,7 +36,7 @@ https://github.com/ExpDev07/coronavirus-tracker-api#recovered-cases-showing-0
 
 You can try it using the [Demo](https://udsgit.github.io/covid-19), but I recommend that you first take a look at the [Wiki](https://github.com/udsgit/covid-19/wiki/Wiki) to know all the functionalities.
 
-> ![](https://github.com/udsgit/reservation-covid-bot/blob/master/readme/demo.mp4)
+> <img src="images_readme/demo.gif"><br><i>Demo</i>
 
 ## **Screenshots**
 
